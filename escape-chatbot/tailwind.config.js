@@ -1,17 +1,13 @@
+// tailwind.config.js
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      fontFamily:{
-        jester: ['JesterFont', 'sans-serif'],
-        ringmaster: ['RingmasterFont', 'sans-serif']
+      fontFamily: {
+        jester: ['Jester', 'sans-serif'],
+        ringmaster: ['Ringmaster', 'serif'],
       },
     },
   },
-  variants: {
-    extend: {},
-  },
   plugins: [],
-}
+};

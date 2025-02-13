@@ -1,1 +1,19 @@
-@import "tailwindcss"
+@import 'tailwindcss'
+
+/* @font-face {
+  font-family: 'Jester';
+  src: url('/fonts/Jester.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ringmaster';
+  src: url('/fonts/Ringmaster.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Jester', sans-serif;
+} */

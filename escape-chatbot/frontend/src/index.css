@@ -1,14 +1,18 @@
+/* @import 'tailwindcss/base';
+
 @font-face {
-    font-family: 'JesterFont'; /* Use a unique name (no lowercase conflicts) */
-    src: url('/fonts/Jester.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'RingmasterFont'; /* Use a unique name */
-    src: url('/fonts/ringmaster.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
+  font-family: 'Jester';
+  src: url('/fonts/Jester.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ringmaster';
+  src: url('/fonts/Ringmaster.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Optional: Apply default font styles */
+
