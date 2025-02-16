@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 const Instructions = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center text-green-300 font-mono p-6"
@@ -52,7 +56,8 @@ const Instructions = () => {
       </div>
 
       <button
-        onClick={() => window.history.back()}
+        // onClick={() => window.history.back()}
+        onClick={() => navigate("/")}
         className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
       >
         Back to Menu

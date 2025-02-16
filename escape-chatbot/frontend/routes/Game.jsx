@@ -27,6 +27,10 @@ const Game = () => {
     navigate("/");
   };
 
+  const handleHint = () => {
+    navigate("*")
+  }
+
   return (
 
     <div
@@ -65,12 +69,14 @@ const Game = () => {
             className="w-12 h-12 rounded-full border-2 border-green-500"
           />
           <h2 className="text-green-300 font-bold text-xl">The Jester</h2>
+          
           <button
             onClick={handleQuit}
             className="ml-auto px-3 py-1 bg-red-600 text-white rounded-full hover:bg-red-500"
           >
             Quit
           </button>
+          
         </div>
 
         {/* Chat Messages */}
@@ -117,6 +123,14 @@ const Game = () => {
           >
             Send
           </button>
+
+          <button
+            onClick={handleSend}
+            className="ml-2 px-4 py-2 bg-yellow-600 text-black font-bold rounded-full hover:bg-yellow-400"
+          >
+            Hint?
+          </button>
+          
         </div>
       </div>
     </div>

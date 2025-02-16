@@ -6,7 +6,7 @@ const Profile = () => {
     username: "trickster123",
     password: "********",
     level: 7,
-    experience: "3,500 XP",
+    score: 3400,
     avatar: "/images/questionmark.webp",
     email: "jester@escape.com",
     joined: "January 2025",
@@ -75,7 +75,7 @@ const Profile = () => {
             <button onClick={() => handleEdit('email')} className="text-green-400 underline">Edit</button>
           </div>
           <p><span className="text-green-400 font-bold">Level:</span> {user.level}</p>
-          <p><span className="text-green-400 font-bold">Experience:</span> {user.experience}</p>
+          <p><span className="text-green-400 font-bold">Score:</span> {user.score}</p>
           <p><span className="text-green-400 font-bold">Joined:</span> {user.joined}</p>
         </div>
       </div>
