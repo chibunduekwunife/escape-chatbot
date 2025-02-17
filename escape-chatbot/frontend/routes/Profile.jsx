@@ -84,7 +84,7 @@ const Profile = () => {
         onClick={() => window.history.back()}
         className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
       >
-        Back to Menu
+        Back to Settings
       </button>
     </div>
   );
