@@ -9,6 +9,8 @@ import Profile from '../routes/Profile.jsx';
 import NotFound from '../routes/NotFound.jsx'
 import React from 'react'
 import App from './App.jsx'
+import Signup from '../routes/Signup.jsx'
+import Login from '../routes/Login.jsx'
 import './styles.css'
 
 createRoot(document.getElementById('root')).render(
@@ -32,6 +34,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="leaderboard" element={<Leaderboard />} />
         <Route path="settings" element={<Settings />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
 
       </Routes>
 

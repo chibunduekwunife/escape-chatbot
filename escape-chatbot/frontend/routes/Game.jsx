@@ -125,7 +125,7 @@ const Game = () => {
           </button>
 
           <button
-            onClick={handleSend}
+            onClick={handleHint}
             className="ml-2 px-4 py-2 bg-yellow-600 text-black font-bold rounded-full hover:bg-yellow-400"
           >
             Hint?
