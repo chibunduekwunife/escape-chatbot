@@ -1,28 +1,38 @@
 //entry point for the application
 
 import http from "http"; //use http module to create a server
-import fs from 'fs/promises';
-import url from 'url';
-import path from 'path';
+import fs from "fs/promises";
+import url from "url";
+import path from "path";
 
 const PORT = process.env.PORT || 5000; //set port to 5000 or use the port provided by the environment
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const server = http.createServer( async (req, res) => {
 
+  try {
+    if (req.method === "GET") {
+      let filePath;
+      if (req.url === "/") {
+        filePath = path.join(__dirname, "home.html");
+      } else if (req.url === "/about") {
+        filePath = path.join(__dirname, "about.html");
+      } else {
+        throw new Error("Page not found");
+        
+      }
 
-const server = http.createServer((req, res) => {
+      const data = await fs.readFile(filePath);
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(data);
 
-  let filePath;
-
-  if (req.url === "/") {
-    
-    filePath = path.join(__dirname, 'dev.html');
-
-  } else if (req.url === '/about'){
-    
-  } else {
-    throw new Error('Page not found')
+    } else {
+      throw new Error("Method not allowed");
+    }
+  } catch (err) {
+    res.writeHead(404, { 'Content-Type': 'text/html'});
+    res.end("<h1>404 Not Found</h1>");
   }
 });
 

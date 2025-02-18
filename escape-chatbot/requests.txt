@@ -1,0 +1,10 @@
+GET /api/Users
+GET /api/Users/1
+POST /api/Users
+POST /api/Users/5
+POST /api/Users/5
+GET /api/Users/2
+GET /api/Users
+GET /api/Users/3
+POST /api/Users
+GET /api/Users
