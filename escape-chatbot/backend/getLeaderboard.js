@@ -1,24 +1,26 @@
 
-//connect to database
-// rank == id, player == name, score == score
-//render on leaderboard route
+//get leaderboard from database
 
-const leaderboard = [
-    {id: 1, name: 'Player 1', score: 100},
-    {id: 2, name: 'Player 2', score: 200},
-    {id: 3, name: 'Player 3', score: 300},
-    {id: 4, name: 'Player 4', score: 400},
-    {id: 5, name: 'Player 5', score: 500},
+const db = [
+    { rank: 1, name: 'John', score: 100 },
+    { rank: 2, name: 'Jane', score: 90 },
+    { rank: 3, name: 'Doe', score: 80 },
+    { rank: 4, name: 'Smith', score: 70 },
+    { rank: 5, name: 'Alex', score: 60 },
+    { rank: 6, name: 'Sam', score: 50 },
+    { rank: 7, name: 'Tom', score: 40 },
+    { rank: 8, name: 'Jerry', score: 30 },
+    { rank: 9, name: 'Marry', score: 20 },
+    { rank: 10, name: 'Harry', score: 10 }
 ]
 
+
 const getLeaderboard = () => {
-    return leaderboard;
+    return db;
 }
 
 export const leaderboardLength = () => {
-    return leaderboard.length;
+    return db.length;
 }
 
 export default getLeaderboard;
-
-
