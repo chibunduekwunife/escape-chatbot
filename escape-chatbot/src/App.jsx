@@ -1,4 +1,4 @@
-import Home from "../routes/Home"
+import Home from "../public/routes/Home"
 import './styles.css'
 import './index.css'
 

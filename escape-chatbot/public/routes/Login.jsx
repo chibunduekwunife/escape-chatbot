@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import AppButton from '../components/stateless/AppButton.jsx';
 
 const Login = () => {
 
@@ -78,42 +79,25 @@ const Login = () => {
               className="p-2 flex-grow rounded bg-gray-800 border border-green-400 text-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className="ml-2 px-3 py-2 text-sm text-green-400 border border-green-500 rounded"
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
+            
+            <AppButton type="button" text={showPassword ? "Hide" : "Show"} onClick={togglePasswordVisibility} className="ml-2 px-3 py-2 text-sm text-green-400 border border-green-500 rounded" />
           </div>
         </div>
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full mt-4 px-4 py-2 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-        >
-          Log In
-        </button>
+        
+        <AppButton text='Log In' type='submit' otherClasses='mt-4 w-full'/>
       </form>
 
       {/* Action Buttons */}
       <div className="mt-6 flex space-x-4">
         {/* Sign Up Button */}
-        <button
-          onClick={() => navigate('/signup')}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-        >
-          Sign Up
-        </button>
+        <AppButton text='Forgot Password?' onClick={() => navigate('*')} />
+
+        <AppButton text='Sign Up' onClick={() => navigate('/signup')} />
 
         {/* Back Button */}
-        <button
-          onClick={() => navigate('/settings')}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-        >
-          Back to Settings
-        </button>
+        <AppButton text="Back to Settings" onClick={() => navigate('/settings')}/>
       </div>
     </div>
   );

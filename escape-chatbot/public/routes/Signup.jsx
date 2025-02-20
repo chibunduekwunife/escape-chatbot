@@ -1,29 +1,29 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import AppButton from "../components/stateless/AppButton.jsx";
 
 const Signup = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-    const [name, setName] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleSubmit = (e) => {
-        e.preventDefault(); 
-        if (!name || !username || !password || !email) {
-            alert('All fields are required!');
-            return;
-        }
-        navigate('/settings');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !username || !password || !email) {
+      alert("All fields are required!");
+      return;
     }
+    navigate("/settings");
+  };
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    }
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div
@@ -49,12 +49,15 @@ const Signup = () => {
       </style>
 
       {/* Page Title */}
-      <h1 className="text-5xl md:text-6xl font-extrabold mb-10 text-green-500 drop-shadow-[2px_4px_6px_rgba(0,255,0,0.7)]">
+      <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-green-500 drop-shadow-[2px_4px_6px_rgba(0,255,0,0.7)]">
         Sign Up
       </h1>
 
       {/* Signup Form */}
-      <form onSubmit={handleSubmit} className="w-full max-w-md bg-gray-900 border-2 border-green-500 rounded-xl p-6 shadow-xl space-y-6 text-green-200">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-gray-900 border-2 border-green-500 rounded-xl p-6 shadow-xl space-y-6 text-green-200"
+      >
         {/* Name Input */}
         <div className="flex flex-col">
           <label className="text-green-400 font-bold mb-2">Name:</label>
@@ -93,13 +96,12 @@ const Signup = () => {
               className="p-2 flex-grow rounded bg-gray-800 border border-green-400 text-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
-            <button
-              type="button"
+
+            <AppButton
+              text={showPassword ? "Hide" : "Show"}
               onClick={togglePasswordVisibility}
               className="ml-2 px-3 py-2 text-sm text-green-400 border border-green-500 rounded hover:bg-green-500 hover:text-black transition-all cursor-pointer"
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
+            />
           </div>
         </div>
 
@@ -117,31 +119,19 @@ const Signup = () => {
         </div>
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full mt-4 px-4 py-2 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all cursor-pointer"
-        >
-          Sign Up
-        </button>
+        
+        <AppButton text='Sign Up' type='submit' otherClasses='mt-4 w-full' />
       </form>
 
       {/* Action Buttons */}
       <div className="mt-6 flex space-x-4">
         {/* Login Button */}
-        <button
-          onClick={() => navigate('/login')}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all cursor-pointer"
-        >
-          Log In
-        </button>
+        
+        <AppButton text='Log In' onClick={() => navigate("/login")} />
 
         {/* Back Button */}
-        <button
-          onClick={() => navigate('/settings')}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all cursor-pointer"
-        >
-          Back to Settings
-        </button>
+        
+        <AppButton text='Back to Settings' onClick={() => navigate("/settings")} />
       </div>
     </div>
   );

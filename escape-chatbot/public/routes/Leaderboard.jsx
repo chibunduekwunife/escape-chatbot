@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import AppButton from '../components/stateless/AppButton.jsx';
 
 const Leaderboard = () => {
   const [scores, setScores] = useState([]);
@@ -58,10 +59,12 @@ const Leaderboard = () => {
               <tr
                 key={index}
                 className={`${
-    index % 2 === 0 ? "bg-green-800/30" : "bg-green-900/30"
-              } hover:bg-green-700/30 transition-all duration-200`}
+                  index % 2 === 0 ? "bg-green-800/30" : "bg-green-900/30"
+                } hover:bg-green-700/30 transition-all duration-200`}
               >
-                <td className="py-3 px-4 font-bold text-green-300">{index + 1}</td>
+                <td className="py-3 px-4 font-bold text-green-300">
+                  {index + 1}
+                </td>
                 <td className="py-3 px-4 text-green-200">{player.name}</td>
                 <td className="py-3 px-4 text-green-300">{player.score}</td>
               </tr>
@@ -70,13 +73,14 @@ const Leaderboard = () => {
         </table>
       </div>
 
-      <button
-        // onClick={() => window.history.back()}
-        onClick={() => navigate("/")}
-        className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-      >
-        Back to Menu
-      </button>
+      <div className="space-x-5 mt-6">
+        
+        <AppButton text="<" otherClasses="font-bold"/>
+
+        <AppButton text="Back to Menu" onClick={() => navigate('/')}/>
+
+        <AppButton text=">" otherClasses="font-bold"/>
+      </div>
     </div>
   );
 };

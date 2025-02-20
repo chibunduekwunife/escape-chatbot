@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import AppButton from '../components/stateless/AppButton.jsx';
 
 const Instructions = () => {
 
@@ -54,14 +55,9 @@ const Instructions = () => {
           <li>🎶 Listen carefully; even the chatbot's sarcasm might reveal clues.</li>
         </ul>
       </div>
+      
+      <AppButton text="Back to Menu" onClick={() => navigate("/")} otherClasses='mt-6' />
 
-      <button
-        // onClick={() => window.history.back()}
-        onClick={() => navigate("/")}
-        className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-      >
-        Back to Menu
-      </button>
     </div>
   );
 };

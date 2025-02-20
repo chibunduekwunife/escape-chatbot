@@ -1,16 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Routes, Route, BrowserRouter } from "react-router";
-import Game from '../routes/Game.jsx'
-import Leaderboard from '../routes/Leaderboard.jsx'
-import Instructions from '../routes/Instructions.jsx'
-import Settings from '../routes/Settings.jsx'
-import Profile from '../routes/Profile.jsx';
-import NotFound from '../routes/NotFound.jsx'
+import Game from '../public/routes/Game.jsx'
+import Leaderboard from '../public/routes/Leaderboard.jsx'
+import Instructions from '../public/routes/Instructions.jsx'
+import Settings from '../public/routes/Settings.jsx'
+import Profile from '../public/routes/Profile.jsx';
+import NotFound from '../public/routes/NotFound.jsx'
 import React from 'react'
 import App from './App.jsx'
-import Signup from '../routes/Signup.jsx'
-import Login from '../routes/Login.jsx'
+import Signup from '../public/routes/Signup.jsx'
+import Login from '../public/routes/Login.jsx'
 import './styles.css'
 
 createRoot(document.getElementById('root')).render(

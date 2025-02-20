@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import AppButton from '../components/stateless/AppButton.jsx';
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -18,6 +20,8 @@ const Profile = () => {
       setUser({ ...user, [field]: newValue });
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <div
@@ -60,19 +64,19 @@ const Profile = () => {
         <div className="space-y-3">
           <div className="flex justify-between items-center">
             <p><span className="text-green-400 font-bold">Name:</span> {user.name}</p>
-            <button onClick={() => handleEdit('name')} className="text-green-400 underline">Edit</button>
+            <AppButton onClick={() => handleEdit('name')} text='Edit' className="text-green-400 underline cursor-pointer" />
           </div>
           <div className="flex justify-between items-center">
             <p><span className="text-green-400 font-bold">Username:</span> {user.username}</p>
-            <button onClick={() => handleEdit('username')} className="text-green-400 underline">Edit</button>
+            <AppButton text='Edit' onClick={() => handleEdit('username')} className="text-green-400 underline cursor-pointer"/>
           </div>
           <div className="flex justify-between items-center">
             <p><span className="text-green-400 font-bold">Password:</span> {user.password}</p>
-            <button onClick={() => handleEdit('password')} className="text-green-400 underline">Edit</button>
+            <AppButton text='Edit' onClick={() => handleEdit('password')} className="text-green-400 underline cursor-pointer"/>
           </div>
           <div className="flex justify-between items-center">
             <p><span className="text-green-400 font-bold">Email:</span> {user.email}</p>
-            <button onClick={() => handleEdit('email')} className="text-green-400 underline">Edit</button>
+            <AppButton text='Edit' onClick={() => handleEdit('email')} className="text-green-400 underline cursor-pointer"/>
           </div>
           <p><span className="text-green-400 font-bold">Level:</span> {user.level}</p>
           <p><span className="text-green-400 font-bold">Score:</span> {user.score}</p>
@@ -80,12 +84,12 @@ const Profile = () => {
         </div>
       </div>
 
-      <button
-        onClick={() => window.history.back()}
-        className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-      >
-        Back to Settings
-      </button>
+      <div className='space-x-4 mt-6'>
+        <AppButton text='Log Out' onClick={() => navigate('*')} />
+        <AppButton text='Delete Account' onClick={() => navigate("*")} />
+        <AppButton text='Back to Settings' onClick={() => navigate('/settings')} />
+      </div>
+
     </div>
   );
 };

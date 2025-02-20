@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import AppButton from "../components/stateless/AppButton.jsx";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -33,12 +34,7 @@ const NotFound = () => {
 
       <p className="text-xl text-green-400 mb-4">Oops! The Jester has hidden this page from you.</p>
 
-      <button
-        onClick={() => navigate("/")}
-        className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-      >
-        Return to Safety
-      </button>
+      <AppButton text='Return to Safety' onClick={() => navigate('/')} otherClasses='mt-6' />
     </div>
   );
 };

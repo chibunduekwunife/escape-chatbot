@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import AppButton from "../components/stateless/AppButton.jsx";
 
 const Settings = () => {
   const navigate = useNavigate();
@@ -44,23 +45,27 @@ const Settings = () => {
         {/* Sound Toggle */}
         <div className="flex justify-between items-center">
           <span className="text-green-400 font-bold">Sound:</span>
-          <button
+
+          <AppButton
+            text={settings.sound ? "On" : "Off"}
             onClick={() => toggleSetting("sound")}
-            className={`px-4 py-2 rounded-lg font-bold border border-green-400 ${settings.sound ? "bg-green-700" : "bg-gray-700"}`}
-          >
-            {settings.sound ? "On" : "Off"}
-          </button>
+            className={`px-4 py-2 rounded-lg font-bold border border-green-400 ${
+              settings.sound ? "bg-green-700" : "bg-gray-700"
+            }`}
+          />
         </div>
 
         {/* Notifications Toggle */}
         <div className="flex justify-between items-center">
           <span className="text-green-400 font-bold">Notifications:</span>
-          <button
+
+          <AppButton
+            text={settings.notifications ? "On" : "Off"}
             onClick={() => toggleSetting("notifications")}
-            className={`px-4 py-2 rounded-lg font-bold border border-green-400 ${settings.notifications ? "bg-green-700" : "bg-gray-700"}`}
-          >
-            {settings.notifications ? "On" : "Off"}
-          </button>
+            className={`px-4 py-2 rounded-lg font-bold border border-green-400 ${
+              settings.notifications ? "bg-green-700" : "bg-gray-700"
+            }`}
+          />
         </div>
 
         {/* Theme */}
@@ -68,7 +73,9 @@ const Settings = () => {
           <span className="text-green-400 font-bold">Theme:</span>
           <select
             value={settings.theme}
-            onChange={(e) => setSettings({ ...settings, theme: e.target.value })}
+            onChange={(e) =>
+              setSettings({ ...settings, theme: e.target.value })
+            }
             className="px-4 py-2 rounded-lg font-bold border border-green-400 bg-gray-700 text-green-300"
           >
             <option>Hacky Green</option>
@@ -79,34 +86,20 @@ const Settings = () => {
       </div>
 
       {/* Navigation Buttons */}
+
       <div className="mt-6 flex gap-4">
-        <button
-          onClick={() => navigate("/profile")}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-        >
-          Go to Profile
-        </button>
-        <button
-          onClick={() => navigate("/login")}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-        >
-          Log In
-        </button>
-        <button
-          onClick={() => navigate("/signup")}
-          className="px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-        >
-          Create Account
-        </button>
+        <AppButton text="Go to Profile" onClick={() => navigate("/profile")} />
+
+        <AppButton text="Log In" onClick={() => navigate("/login")} />
+
+        <AppButton text="Create Account" onClick={() => navigate("/signup")} />
       </div>
 
-      <button
-        // onClick={() => window.history.back()}
+      <AppButton
+        text="Back to Menu"
         onClick={() => navigate("/")}
-        className="mt-6 px-6 py-3 bg-green-700 text-black font-bold rounded-lg hover:bg-green-500 border border-green-400 transition-all"
-      >
-        Back to Menu
-      </button>
+        otherClasses="mt-6"
+      />
     </div>
   );
 };
