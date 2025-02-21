@@ -1,8 +1,8 @@
 import express from 'express';
-import path from 'path';
 import posts from './express_routes/posts.js';
+import errorHandler from './middleware/error.js';
+import notFound from './middleware/notFound.js';
 import logger from './middleware/logger.js';
-
 const PORT = process.env.PORT || 8000;
 
 
@@ -14,12 +14,15 @@ const app = express();
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(logger);
 
 // app uses the posts route with the /api/posts prefix
 app.use('/api/posts', posts);
 
-// app level middleware
-app.use(logger);
+
+// Error Handlers
+app.use(notFound);
+app.use(errorHandler);
 
 
 

@@ -6,17 +6,29 @@ const Leaderboard = () => {
   const [scores, setScores] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Simulating fetch call for leaderboard data
-    const fakeLeaderboard = [
-      { name: "JesterMaster", score: 5000 },
-      { name: "HackTheBot", score: 4200 },
-      { name: "PuzzleKing", score: 3900 },
-      { name: "ChatEscapee", score: 3500 },
-      { name: "RiddleWizard", score: 3000 },
-    ];
-    setScores(fakeLeaderboard);
-  }, []);
+  // useEffect(() => {
+  //   // Simulating fetch call for leaderboard data
+  //   const fakeLeaderboard = [
+  //     { name: "JesterMaster", score: 5000 },
+  //     { name: "HackTheBot", score: 4200 },
+  //     { name: "PuzzleKing", score: 3900 },
+  //     { name: "ChatEscapee", score: 3500 },
+  //     { name: "RiddleWizard", score: 3000 },
+  //   ];
+  //   setScores(fakeLeaderboard);
+  // }, []);
+
+  useEffect(async () => {
+
+    const res = await fetch (`http://localhost:5001/api/leaderboard`)
+  
+      if (!res.ok) {
+        throw new Error('Failed to fetch leaderboard data')
+      } 
+  
+      const leaderboard = await res.json();
+      setScores(leaderboard);
+  })
 
   return (
     <div
@@ -62,11 +74,12 @@ const Leaderboard = () => {
                   index % 2 === 0 ? "bg-green-800/30" : "bg-green-900/30"
                 } hover:bg-green-700/30 transition-all duration-200`}
               >
-                <td className="py-3 px-4 font-bold text-green-300">
-                  {index + 1}
+                <td id='player-rank' className="py-3 px-4 font-bold text-green-300">
+                  {/* {index + 1} */}
+                  {player.rank}
                 </td>
-                <td className="py-3 px-4 text-green-200">{player.name}</td>
-                <td className="py-3 px-4 text-green-300">{player.score}</td>
+                <td id='player-name' className="py-3 px-4 text-green-200">{player.name}</td>
+                <td id='player-score' className="py-3 px-4 text-green-300">{player.score}</td>
               </tr>
             ))}
           </tbody>
@@ -75,11 +88,11 @@ const Leaderboard = () => {
 
       <div className="space-x-5 mt-6">
         
-        <AppButton text="<" otherClasses="font-bold"/>
+        <AppButton text="<" otherClasses="font-bold" id='get-prev-stat-btn'/>
 
         <AppButton text="Back to Menu" onClick={() => navigate('/')}/>
 
-        <AppButton text=">" otherClasses="font-bold"/>
+        <AppButton text=">" otherClasses="font-bold" id='get-next-stat-btn'/>
       </div>
     </div>
   );
