@@ -9,11 +9,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "node --watch --env-file=.env server.js",
-    "game": "node --watch --env-file=.env gameserver.js"
+    "game": "node --watch --env-file=.env gameserver.js",
+    "template": "node app.js",
+    "template-dev": "node --watch app.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
     "colors": "^1.4.0",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

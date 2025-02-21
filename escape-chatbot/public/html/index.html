@@ -13,6 +13,20 @@
     <a href="portfolio.php">Portfolio</a>
     <a href="blog.php">Blog</a>
     <a href="team.php">Team</a>
-    <a href="home.html">Fake Home</a>
+
+    <h1>Posts</h1>
+
+    <form id="add-post-form">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="body">Body:</label><br>
+        <input type="text" id="body" name="body"><br>
+        <button type="submit">Add Post</button>
+    </form>
+
+    <button id="get-posts-btn">Get Posts</button>
+    <div id="output"></div>
+
+    <script src="./js/main.js"></script>
 </body>
 </html>
